@@ -7,12 +7,11 @@ import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
-import androidx.compose.material.Text
-import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.compose.rememberNavController
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
+import com.wantech.facebookcompose.featureHome.presentation.NavigationHost
 import com.wantech.facebookcompose.ui.theme.FacebookComposeTheme
 
 class MainActivity : ComponentActivity() {
@@ -21,11 +20,11 @@ class MainActivity : ComponentActivity() {
         setContent {
             FacebookComposeTheme {
                 val systemUiController = rememberSystemUiController()
-                if(isSystemInDarkTheme()){
+                if (isSystemInDarkTheme()) {
                     systemUiController.setSystemBarsColor(
                         color = MaterialTheme.colors.background
                     )
-                }else{
+                } else {
                     systemUiController.setSystemBarsColor(
                         color = Color.White
                     )
@@ -35,7 +34,8 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
                 ) {
-
+                    val navController = rememberNavController()
+                    NavigationHost(navHostController = navController)
                 }
             }
         }
