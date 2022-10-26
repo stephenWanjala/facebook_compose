@@ -10,7 +10,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
-
+import com.wantech.facebookcompose.R
 @Composable
 fun HomeScreen(navHostController: NavHostController) {
     Surface(
@@ -31,37 +31,38 @@ fun HomeScreen(navHostController: NavHostController) {
                         icon = Icons.Rounded.Home,
                         name = "Home",
                         route = "home",
-                        isSelected = true
+
                     ),
                     TabbedTabItem(
                         icon = Icons.Rounded.People,
                         name = "friends",
                         route = "find friend",
-                        isSelected = false
+
                     ),
                     TabbedTabItem(
-                        icon = Icons.Rounded.DesignServices,
+                        icon = Icons.Rounded.Home,
                         name = "Home",
                         route = "home",
-                        isSelected = false
+                        painterDrawable = R.drawable.fb_stores
+
                     ),
                     TabbedTabItem(
                         icon = Icons.Default.CardGiftcard,
                         name = "Home",
                         route = "home",
-                        isSelected = false
+
                     ),
                     TabbedTabItem(
                         icon = Icons.Rounded.Notifications,
                         name = "Notifications",
                         route = "notifications",
-                        isSelected = false
+
                     ),
                     TabbedTabItem(
                         icon = Icons.Rounded.Menu,
                         name = "Notifications",
                         route = "notifications",
-                        isSelected = false
+
                     ),
                 ),
                 onClickTab = {})

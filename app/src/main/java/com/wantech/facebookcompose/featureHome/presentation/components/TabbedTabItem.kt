@@ -7,5 +7,5 @@ data class TabbedTabItem(
     val icon: ImageVector,
     val route: String,
     val name: String,
-    var isSelected: Boolean,
+    val painterDrawable: Int? = null
 )
