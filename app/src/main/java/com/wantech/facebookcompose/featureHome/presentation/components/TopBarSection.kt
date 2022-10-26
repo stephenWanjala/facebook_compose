@@ -61,7 +61,7 @@ fun TopBarSection(
         Spacer(modifier = Modifier.width(4.dp))
         RoundIconButton(
             onClick = { onClickToMessenger() },
-            icon = R.drawable.mess_im,
+            icon = R.drawable.facebook_messenger,
             desc = "send message"
         )
 
