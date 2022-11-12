@@ -1,16 +1,14 @@
 package com.wantech.facebookcompose.featureHome.presentation.components
 
-import androidx.compose.foundation.interaction.collectIsDraggedAsState
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.*
-import androidx.compose.material.TabRowDefaults.tabIndicatorOffset
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import com.google.accompanist.pager.*
-import kotlinx.coroutines.flow.collect
+import com.wantech.facebookcompose.featureHome.presentation.components.friends.FindFriendsTab
 import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalPagerApi::class)
@@ -24,8 +22,7 @@ fun TabbedArea(
     var selectIndex by remember {
         mutableStateOf(0)
     }
-    Column() {
-
+    Column(modifier = modifier.fillMaxWidth()) {
 
 
         val tabIndex = pagerState.currentPage
@@ -57,25 +54,25 @@ fun TabbedArea(
                         selectIndex = index
                         coroutineScope.launch {
                             pagerState.animateScrollToPage(selectIndex)
+                            selectIndex = index
 
                         }
                     },
                     unselectedContentColor = MaterialTheme.colors.onBackground,
                     selectedContentColor = MaterialTheme.colors.primary,
-//                  interactionSource =
+//                    interactionSource =
 
-
-                    ) {
+                ) {
                     if (tabItem.painterDrawable != null) {
                         Icon(
                             painter = painterResource(id = tabItem.painterDrawable),
                             contentDescription = tabItem.name,
-                            modifier = Modifier.size(40.dp)
+                            modifier = Modifier.size(30.dp)
                         )
                     } else {
                         Icon(
                             imageVector = tabItem.icon, contentDescription = tabItem.name,
-                            modifier = Modifier.size(40.dp)
+                            modifier = Modifier.size(30.dp)
                         )
                     }
 
@@ -87,13 +84,28 @@ fun TabbedArea(
         HorizontalPager(
             state = pagerState,
             modifier = Modifier.weight(1f),
-            count = tabItems.size
-        ) {
-            Column(
-                modifier = Modifier.fillMaxSize(),
-                verticalArrangement = Arrangement.Center,
-                horizontalAlignment = Alignment.CenterHorizontally
-            ) {
+            count = tabItems.size,
+        ) { page ->
+            when (page) {
+                0 -> {
+                    HomeTab(modifier = Modifier)
+
+                }
+                1 -> {
+                    FindFriendsTab(modifier=Modifier)
+                }
+                2 -> {
+
+                }
+                3 -> {
+
+                }
+                4 -> {
+
+                }
+                5 -> {
+
+                }
 
             }
 
