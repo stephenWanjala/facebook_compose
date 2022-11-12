@@ -1,9 +1,6 @@
 package com.wantech.facebookcompose.featureHome.presentation.components
 
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.*
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.material.icons.Icons
@@ -68,7 +65,9 @@ fun HomeScreen(navHostController: NavHostController) {
         modifier = Modifier.fillMaxWidth(),
         color = MaterialTheme.colors.background
     ) {
-        Column(modifier = Modifier.fillMaxWidth()) {
+        Column(modifier = Modifier
+            .fillMaxWidth()
+            .padding(top = 8.dp)) {
             val pagerState = rememberPagerState()
             var onHomePage by remember {
                 mutableStateOf(true)
@@ -94,10 +93,6 @@ fun HomeScreen(navHostController: NavHostController) {
             )
             Spacer(modifier = Modifier.height(16.dp))
 
-//            StartArea(modifier = Modifier,
-//                postImage = { /*TODO*/ },
-//                viewProfile = { /*TODO*/ },
-//                postSomeText = {/*TODO*/ })
         }
 
 
