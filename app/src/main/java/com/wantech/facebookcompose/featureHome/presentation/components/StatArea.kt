@@ -33,7 +33,7 @@ fun StartArea(
     ) {
 
         IconButton(
-            onClick = { viewProfile }, modifier = Modifier
+            onClick = { viewProfile() }, modifier = Modifier
                 .clip(CircleShape)
                 .border(
                     width = 1.dp,

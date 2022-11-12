@@ -20,6 +20,7 @@ import androidx.navigation.NavHostController
 import com.google.accompanist.pager.ExperimentalPagerApi
 import com.google.accompanist.pager.rememberPagerState
 import com.wantech.facebookcompose.R
+import com.wantech.facebookcompose.featureHome.presentation.components.homeTab.TopBarSection
 
 @OptIn(ExperimentalPagerApi::class)
 @Composable

@@ -9,6 +9,8 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import com.google.accompanist.pager.*
 import com.wantech.facebookcompose.featureHome.presentation.components.friends.FindFriendsTab
+import com.wantech.facebookcompose.featureHome.presentation.components.homeTab.HomeTab
+import com.wantech.facebookcompose.featureHome.presentation.components.watchVideo.WatchVideoTab
 import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalPagerApi::class)
@@ -92,10 +94,10 @@ fun TabbedArea(
 
                 }
                 1 -> {
-                    FindFriendsTab(modifier=Modifier)
+                    FindFriendsTab(modifier = Modifier)
                 }
                 2 -> {
-
+                    WatchVideoTab(modifier = Modifier)
                 }
                 3 -> {
 

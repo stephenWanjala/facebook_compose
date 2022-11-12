@@ -1,4 +1,4 @@
-package com.wantech.facebookcompose.featureHome.presentation.components
+package com.wantech.facebookcompose.featureHome.presentation.components.homeTab
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
