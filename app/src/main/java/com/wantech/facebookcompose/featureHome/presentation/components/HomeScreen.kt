@@ -12,8 +12,7 @@ import androidx.compose.material.icons.rounded.Home
 import androidx.compose.material.icons.rounded.Menu
 import androidx.compose.material.icons.rounded.Notifications
 import androidx.compose.material.icons.rounded.People
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
@@ -70,15 +69,21 @@ fun HomeScreen(navHostController: NavHostController) {
         color = MaterialTheme.colors.background
     ) {
         Column(modifier = Modifier.fillMaxWidth()) {
-            TopBarSection(
-                modifier = Modifier,
-                onClickAdd = { /*TODO*/ },
-                onClickSearch = { /*TODO*/ }) {
+            val pagerState = rememberPagerState()
+            var onHomePage by remember {
+                mutableStateOf(true)
+            }
+            onHomePage = pagerState.currentPage == 0
+            if (onHomePage) {
+                TopBarSection(
+                    modifier = Modifier,
+                    onClickAdd = { /*TODO*/ },
+                    onClickSearch = { /*TODO*/ }) {
 
+                }
+                Spacer(modifier = Modifier.height(8.dp))
             }
 
-            val pagerState = rememberPagerState()
-            Spacer(modifier = Modifier.height(8.dp))
             TabbedArea(
                 modifier = Modifier,
                 tabItems = tabItems,

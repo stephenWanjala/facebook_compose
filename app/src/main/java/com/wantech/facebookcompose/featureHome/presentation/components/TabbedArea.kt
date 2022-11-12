@@ -10,6 +10,7 @@ import androidx.compose.ui.unit.dp
 import com.google.accompanist.pager.*
 import com.wantech.facebookcompose.featureHome.presentation.components.friends.FindFriendsTab
 import com.wantech.facebookcompose.featureHome.presentation.components.homeTab.HomeTab
+import com.wantech.facebookcompose.featureHome.presentation.components.marketPlace.MarketPlaceTab
 import com.wantech.facebookcompose.featureHome.presentation.components.watchVideo.WatchVideoTab
 import kotlinx.coroutines.launch
 
@@ -27,7 +28,7 @@ fun TabbedArea(
     Column(modifier = modifier.fillMaxWidth()) {
 
 
-        val tabIndex = pagerState.currentPage
+
         val coroutineScope = rememberCoroutineScope()
         TabRow(
             selectedTabIndex = pagerState.currentPage,
@@ -100,7 +101,7 @@ fun TabbedArea(
                     WatchVideoTab(modifier = Modifier)
                 }
                 3 -> {
-
+                    MarketPlaceTab(modifier = Modifier)
                 }
                 4 -> {
 
