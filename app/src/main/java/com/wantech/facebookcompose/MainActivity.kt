@@ -1,5 +1,6 @@
 package com.wantech.facebookcompose
 
+
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -9,9 +10,9 @@ import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.navigation.compose.rememberNavController
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
-import com.wantech.facebookcompose.featureHome.presentation.NavigationHost
+import com.ramcosta.composedestinations.DestinationsNavHost
+import com.wantech.facebookcompose.featureHome.presentation.components.NavGraphs
 import com.wantech.facebookcompose.ui.theme.FacebookComposeTheme
 
 class MainActivity : ComponentActivity() {
@@ -26,7 +27,7 @@ class MainActivity : ComponentActivity() {
                     )
                 } else {
                     systemUiController.setSystemBarsColor(
-                        color = Color.White
+                        color = Color.White.copy(alpha = 0.5f)
                     )
                 }
                 // A surface container using the 'background' color from the theme
@@ -34,8 +35,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
                 ) {
-                    val navController = rememberNavController()
-                    NavigationHost(navHostController = navController)
+                    DestinationsNavHost(navGraph = NavGraphs.root)
                 }
             }
         }

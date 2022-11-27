@@ -12,15 +12,18 @@ import androidx.compose.material.icons.rounded.People
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import androidx.navigation.NavHostController
 import com.google.accompanist.pager.ExperimentalPagerApi
 import com.google.accompanist.pager.rememberPagerState
+import com.ramcosta.composedestinations.annotation.Destination
+import com.ramcosta.composedestinations.annotation.RootNavGraph
+import com.ramcosta.composedestinations.navigation.DestinationsNavigator
 import com.wantech.facebookcompose.R
 import com.wantech.facebookcompose.featureHome.presentation.components.homeTab.TopBarSection
 
 @OptIn(ExperimentalPagerApi::class)
 @Composable
-fun HomeScreen(navHostController: NavHostController) {
+@Destination(start = true)
+fun HomeScreen(navigator: DestinationsNavigator) {
     val coroutineScope = rememberCoroutineScope()
     val tabItems = listOf(
         TabbedTabItem(
@@ -65,9 +68,11 @@ fun HomeScreen(navHostController: NavHostController) {
         modifier = Modifier.fillMaxWidth(),
         color = MaterialTheme.colors.background
     ) {
-        Column(modifier = Modifier
-            .fillMaxWidth()
-            .padding(top = 8.dp)) {
+        Column(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(top = 8.dp)
+        ) {
             val pagerState = rememberPagerState()
             var onHomePage by remember {
                 mutableStateOf(true)

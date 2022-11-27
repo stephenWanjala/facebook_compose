@@ -7,7 +7,7 @@ import androidx.compose.ui.Modifier
 
 @Composable
 fun WatchVideoTab(modifier: Modifier) {
-    Column(modifier = Modifier.fillMaxSize()) {
+    Column(modifier = modifier.fillMaxSize()) {
         WatchVideoTopBar(
             modifier = Modifier,
             postVideo = { /*TODO*/ },
