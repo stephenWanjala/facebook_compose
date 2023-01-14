@@ -27,8 +27,8 @@ fun StartArea(
     Row(
         modifier = modifier
             .fillMaxWidth()
-            .padding(horizontal = 16.dp, vertical = 8.dp),
-        horizontalArrangement = Arrangement.SpaceAround,
+            .padding(horizontal = 8.dp, vertical = 8.dp),
+        horizontalArrangement = Arrangement.SpaceBetween,
         verticalAlignment = Alignment.CenterVertically
     ) {
 
@@ -41,33 +41,37 @@ fun StartArea(
                     color = Color.DarkGray
                 )
         ) {
-            Image(painter = painterResource(id = R.drawable.mefb),
+            Image(
+                painter = painterResource(id = R.drawable.mefb),
                 contentDescription = "me",
                 modifier = Modifier
                     .size(40.dp)
                     .clip(CircleShape)
-                    .clickable { viewProfile() })
-        }
-        Spacer(modifier = Modifier.width(4.dp))
-        TextButton(
-            onClick = { postSomeText() },
-            modifier = Modifier
-
-                .clip(RoundedCornerShape(50))
-                .border(
-                    width = 0.1.dp,
-                    color = Color.LightGray.copy(alpha = .3f),
-                    shape = RoundedCornerShape(50)
-                )
-        ) {
-            Text(
-                text = "what is on your mind?",
-                style = MaterialTheme.typography.body1,
-                color = MaterialTheme.colors.onSurface.copy(0.5f),
-                textAlign = TextAlign.Center,
-                modifier = Modifier.padding(horizontal = 32.dp, vertical = 0.dp)
+                    .clickable { viewProfile() },
             )
         }
+        Spacer(modifier = Modifier.width(4.dp))
+
+        OutlinedButton(
+            onClick = {
+                postSomeText()
+            }, modifier = Modifier
+                .fillMaxWidth(0.7f)
+                .height(40.dp),
+//                .clip(RoundedCornerShape(20.dp)),
+            shape = RoundedCornerShape(20.dp),
+        ) {
+            Text(
+                text = "What's on your mind?",
+                textAlign = TextAlign.Center,
+                style = MaterialTheme.typography.body1,
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(horizontal = 8.dp)
+            )
+        }
+
+
 
         Spacer(modifier = Modifier.width(8.dp))
         IconButton(

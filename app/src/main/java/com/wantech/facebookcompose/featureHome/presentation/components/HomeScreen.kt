@@ -18,7 +18,8 @@ import com.google.accompanist.pager.rememberPagerState
 import com.ramcosta.composedestinations.annotation.Destination
 import com.ramcosta.composedestinations.navigation.DestinationsNavigator
 import com.wantech.facebookcompose.R
-import com.wantech.facebookcompose.featureHome.presentation.components.homeTab.TopBarSection
+import com.wantech.facebookcompose.featureHome.presentation.components.homeTab.presentation.components.TopBarSection
+
 
 @OptIn(ExperimentalPagerApi::class)
 @Composable
