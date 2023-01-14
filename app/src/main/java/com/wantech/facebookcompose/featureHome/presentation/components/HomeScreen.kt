@@ -1,5 +1,6 @@
 package com.wantech.facebookcompose.featureHome.presentation.components
 
+import androidx.compose.animation.*
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
@@ -15,7 +16,6 @@ import androidx.compose.ui.unit.dp
 import com.google.accompanist.pager.ExperimentalPagerApi
 import com.google.accompanist.pager.rememberPagerState
 import com.ramcosta.composedestinations.annotation.Destination
-import com.ramcosta.composedestinations.annotation.RootNavGraph
 import com.ramcosta.composedestinations.navigation.DestinationsNavigator
 import com.wantech.facebookcompose.R
 import com.wantech.facebookcompose.featureHome.presentation.components.homeTab.TopBarSection
@@ -78,15 +78,19 @@ fun HomeScreen(navigator: DestinationsNavigator) {
                 mutableStateOf(true)
             }
             onHomePage = pagerState.currentPage == 0
-            if (onHomePage) {
+
+
+            AnimatedVisibility(
+                visible = onHomePage, enter = fadeIn() + expandVertically(),
+                exit = fadeOut() + shrinkVertically()
+            ) {
                 TopBarSection(
                     modifier = Modifier,
                     onClickAdd = { /*TODO*/ },
-                    onClickSearch = { /*TODO*/ }) {
-
-                }
-                Spacer(modifier = Modifier.height(8.dp))
+                    onClickSearch = { /*TODO*/ }, onClickToMessenger = { /*TODO*/ })
             }
+
+
 
             TabbedArea(
                 modifier = Modifier,
