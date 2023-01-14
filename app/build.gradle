@@ -73,7 +73,7 @@ dependencies {
     debugImplementation "androidx.compose.ui:ui-tooling:$compose_ui_version"
     debugImplementation "androidx.compose.ui:ui-test-manifest:$compose_ui_version"
 
-    implementation "com.google.accompanist:accompanist-systemuicontroller:0.17.0"
+    implementation "com.google.accompanist:accompanist-systemuicontroller:0.27.0"
 
 
 
@@ -81,7 +81,7 @@ dependencies {
     implementation 'androidx.lifecycle:lifecycle-viewmodel-compose:2.5.1'
 
     //room
-    def room_version = "2.4.3"
+    def room_version = "2.5.0"
 
     implementation("androidx.room:room-runtime:$room_version")
     annotationProcessor("androidx.room:room-compiler:$room_version")
@@ -102,15 +102,15 @@ dependencies {
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4'
 
     //pager
-    implementation "com.google.accompanist:accompanist-pager:0.23.1"
-    implementation "com.google.accompanist:accompanist-pager-indicators:0.19.0"
+    implementation "com.google.accompanist:accompanist-pager:0.28.0"
+    implementation "com.google.accompanist:accompanist-pager-indicators:0.28.0"
 
     def compose_destinations = "1.7.27-beta"
 
     implementation "io.github.raamcosta.compose-destinations:core:$compose_destinations"
     ksp "io.github.raamcosta.compose-destinations:ksp:$compose_destinations"
     implementation "io.github.raamcosta.compose-destinations:animations-core:$compose_destinations"
-
+    implementation("androidx.constraintlayout:constraintlayout-compose:1.0.1")
 
 
 }
