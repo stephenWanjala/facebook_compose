@@ -1,4 +1,4 @@
-package com.wantech.facebookcompose.featureHome.presentation.components
+package com.wantech.facebookcompose.featureHome.presentation.components.homeTab.presentation.components
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.border
@@ -32,30 +32,26 @@ fun StartArea(
         verticalAlignment = Alignment.CenterVertically
     ) {
 
-        IconButton(
-            onClick = { viewProfile() }, modifier = Modifier
+        Image(
+            painter = painterResource(id = R.drawable.mefb),
+            contentDescription = "me",
+            modifier = Modifier
+                .size(40.dp)
                 .clip(CircleShape)
                 .border(
                     width = 1.dp,
                     shape = CircleShape,
                     color = Color.DarkGray
                 )
-        ) {
-            Image(
-                painter = painterResource(id = R.drawable.mefb),
-                contentDescription = "me",
-                modifier = Modifier
-                    .size(40.dp)
-                    .clip(CircleShape)
-                    .clickable { viewProfile() },
-            )
-        }
+                .clickable { viewProfile() },
+        )
         Spacer(modifier = Modifier.width(4.dp))
 
         OutlinedButton(
             onClick = {
                 postSomeText()
-            }, modifier = Modifier
+            },
+            modifier = Modifier
                 .fillMaxWidth(0.7f)
                 .height(40.dp),
 //                .clip(RoundedCornerShape(20.dp)),
@@ -64,13 +60,13 @@ fun StartArea(
             Text(
                 text = "What's on your mind?",
                 textAlign = TextAlign.Center,
+                color = Color.White.copy(alpha = 0.5f),
                 style = MaterialTheme.typography.body1,
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(horizontal = 8.dp)
             )
         }
-
 
 
         Spacer(modifier = Modifier.width(8.dp))
