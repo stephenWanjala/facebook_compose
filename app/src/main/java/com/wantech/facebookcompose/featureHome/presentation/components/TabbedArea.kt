@@ -22,14 +22,17 @@ fun TabbedArea(
     onClickTab: (TabbedTabItem) -> Unit,
     pagerState: PagerState
 ) {
-    var selectIndex by remember {
+    var selectedTabIndex by remember {
         mutableStateOf(0)
+    }
+
+    val coroutineScope = rememberCoroutineScope()
+    LaunchedEffect(pagerState.currentPage) {
+        selectedTabIndex = pagerState.currentPage
     }
     Column(modifier = modifier.fillMaxWidth()) {
 
 
-
-        val coroutineScope = rememberCoroutineScope()
         TabRow(
             selectedTabIndex = pagerState.currentPage,
             backgroundColor = MaterialTheme.colors.background,
@@ -52,18 +55,17 @@ fun TabbedArea(
         ) {
             tabItems.forEachIndexed { index, tabItem ->
                 Tab(
-                    selected = selectIndex == index,
+                    selected = selectedTabIndex == index,
                     onClick = {
-                        selectIndex = index
+                        selectedTabIndex =index
                         coroutineScope.launch {
-                            pagerState.animateScrollToPage(selectIndex)
-                            selectIndex = index
+                            pagerState.animateScrollToPage(selectedTabIndex)
+
 
                         }
                     },
                     unselectedContentColor = MaterialTheme.colors.onBackground,
                     selectedContentColor = MaterialTheme.colors.primary,
-//                    interactionSource =
 
                 ) {
                     if (tabItem.painterDrawable != null) {
